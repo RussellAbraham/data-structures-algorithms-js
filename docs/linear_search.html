@@ -1,81 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Data Structures & Algorithms Demo</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      #results span {
-        margin-right: 8px;
-        padding: 4px 8px;
-        border-radius: 4px;
-        display: inline-block;
-      }
-      .highlight {
-        background-color: yellow;
-      }
-      .match {
-        background-color: lightgreen;
-      }
-    </style>
-  </head>
-  <body class="container py-4">
-    <h1 class="mb-4">Linear Search Demo</h1>
-    <div class="mb-3">
-      <label for="arrayInput" class="form-label"
-        >Array (comma-separated):</label
-      >
-      <input
-        type="text"
-        id="arrayInput"
-        class="form-control"
-        value="3,1,4,1,5,9,2"
-      />
+<head>
+  <meta charset="UTF-8" />
+  <title>Linear Search | DSA Visualized</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    #results span {
+      margin-right: 8px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      border: 1px solid #ccc;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+    .match {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body class="container py-4">
+  <nav class="mb-4">
+    <a href="index.html" class="btn btn-outline-secondary">&larr; Back to Index</a>
+  </nav>
+
+  <main>
+    <h1 class="mb-4">Linear Search</h1>
+
+    <div class="row align-items-center mb-5">
+      <!-- SVG Visual -->
+  
+      <div class="col-md-6 text-center">
+  
+        <h3 class="mt-5">How Linear Search Works</h3>
+  
+      <div class="my-4 text-center">
+  
+        <svg width="500" height="100" viewBox="0 0 500 100">
+  
+          <rect x="20" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <rect x="80" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <rect x="140" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <rect x="200" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <rect x="260" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <rect x="320" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <rect x="380" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+          <text x="45" y="55" font-size="20" text-anchor="middle" fill="#333">3</text>
+          <text x="105" y="55" font-size="20" text-anchor="middle" fill="#333">1</text>
+          <text x="165" y="55" font-size="20" text-anchor="middle" fill="#333">4</text>
+          <text x="225" y="55" font-size="20" text-anchor="middle" fill="#333">1</text>
+          <text x="285" y="55" font-size="20" text-anchor="middle" fill="#333">5</text>
+          <text x="345" y="55" font-size="20" text-anchor="middle" fill="#333">9</text>
+          <text x="405" y="55" font-size="20" text-anchor="middle" fill="#333">2</text>
+          <rect x="260" y="30" width="50" height="40" fill="yellow" fill-opacity="0.5" stroke="orange" stroke-width="3"/>
+          <polygon points="285,80 275,95 295,95" fill="#007bff"/>
+          <rect x="275" y="95" width="20" height="5" fill="#007bff"/>
+          <text x="285" y="115" font-size="16" text-anchor="middle" fill="#007bff">Target</text>
+          <circle cx="45" cy="80" r="3" fill="#007bff"/>
+          <circle cx="105" cy="80" r="3" fill="#007bff"/>
+          <circle cx="165" cy="80" r="3" fill="#007bff"/>
+          <circle cx="225" cy="80" r="3" fill="#007bff"/>
+          <circle cx="285" cy="80" r="5" fill="orange" stroke="#333" stroke-width="1"/>
+  
+        </svg>
+  
+        <div class="text-muted mt-2">Linear search checks each element until it finds the target.</div>
+  
     </div>
-    <div class="mb-3">
-      <label for="targetInput" class="form-label">Target:</label>
-      <input type="text" id="targetInput" class="form-control" value="5" />
+        
+    <div class="text-muted mt-2">Linear search checks each element until it finds the target.</div>
+    
+  </div>
+    
+      <!-- Description Text -->
+      <div class="col-md-6">
+        <p>
+          <strong>Linear search</strong> is a simple search algorithm that checks every element in a list sequentially until it finds the target value or reaches the end of the list. It works on <em>unsorted arrays</em> and is easy to implement.
+        </p>
+        <ul>
+          <li><strong>Best Case:</strong> O(1) – target is the first element</li>
+          <li><strong>Average/Worst Case:</strong> O(n)</li>
+          <li><strong>Space Complexity:</strong> O(1)</li>
+          <li>Useful when the list is unsorted and small</li>
+        </ul>
+      </div>
     </div>
-    <button id="searchBtn" class="btn btn-primary">Run Linear Search</button>
 
-    <h2 class="mt-4">Results:</h2>
-    <div id="results"></div>
 
-    <script>
-      function linearSearch(arr, val) {
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i] === val) return i;
-        }
-        return -1;
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="arrayInput" class="form-label">Array (comma-separated):</label>
+        <input type="text" id="arrayInput" class="form-control" value="3,1,4,1,5,9,2" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="targetInput" class="form-label">Target:</label>
+        <input type="text" id="targetInput" class="form-control" value="5" />
+      </div>
+    </div>
+
+    <button id="searchBtn" class="btn btn-primary mb-4">Run Linear Search</button>
+
+    <h2>Results</h2>
+    <div id="results" class="mb-4"></div>
+
+    <!-- Complexity Table -->
+    <h3>Time and Space Complexity</h3>
+    <table class="table table-bordered w-auto">
+      <thead class="table-light">
+        <tr>
+          <th>Case</th>
+          <th>Time Complexity</th>
+          <th>Space Complexity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Best</td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+        </tr>
+        <tr>
+          <td>Average</td>
+          <td>O(n)</td>
+          <td>O(1)</td>
+        </tr>
+        <tr>
+          <td>Worst</td>
+          <td>O(n)</td>
+          <td>O(1)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Chart.js Line Graph -->
+    <h3 class="mt-5">Time Complexity Visualization</h3>
+    <canvas id="complexityChart" height="200"></canvas>
+
+  </main>
+
+  <script src="../src/algorithms/search/linear_search.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    $("searchBtn").addEventListener("click", () => {
+      const arr = $("arrayInput").value.split(",").map(Number);
+      const target = parseFloat($("targetInput").value);
+      const resultContainer = $("results");
+      resultContainer.innerHTML = "";
+
+      arr.forEach((val, i) => {
+        const span = document.createElement("span");
+        span.textContent = val;
+        if (val === target) span.classList.add("match");
+        resultContainer.appendChild(span);
+      });
+
+      const index = linearSearch(arr, target);
+      if (index !== -1) {
+        resultContainer.children[index].classList.add("highlight");
+      } else {
+        alert(`Target ${target} not found`);
       }
 
-      const $ = (id) => document.getElementById(id);
+      drawComplexityChart(arr.length);
+    });
 
-      $("searchBtn").addEventListener("click", () => {
-        const arr = $("arrayInput").value.split(",").map(Number);
-        const target = parseFloat($("targetInput").value);
-        const resultContainer = $("results");
-        resultContainer.innerHTML = "";
+    function drawComplexityChart(n) {
+      const ctx = document.getElementById("complexityChart").getContext("2d");
+      if (window._chartInstance) window._chartInstance.destroy();
 
-        arr.forEach((val, i) => {
-          const span = document.createElement("span");
-          span.textContent = val;
-          if (val === target) {
-            span.classList.add("match");
+      window._chartInstance = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: Array.from({ length: n }, (_, i) => i + 1),
+          datasets: [{
+            label: "Comparisons",
+            data: Array.from({ length: n }, (_, i) => i + 1),
+            borderColor: "#dc3545",
+            fill: false,
+            tension: 0.2
+          }]
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Time Complexity: O(n)"
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: "Input Size (n)" }
+            },
+            y: {
+              title: { display: true, text: "Comparisons" },
+              beginAtZero: true
+            }
           }
-          resultContainer.appendChild(span);
-        });
-
-        const index = linearSearch(arr, target);
-        if (index !== -1) {
-          resultContainer.children[index].classList.add("highlight");
-        } else {
-          alert(`Target ${target} not found`);
         }
       });
-    </script>
-  </body>
+    }
+  </script>
+</body>
 </html>

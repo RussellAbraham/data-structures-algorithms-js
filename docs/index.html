@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Stuctures and Algorithms</title>
-    
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Structures and Algorithms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header></header>
-    <main>
-        <h1>Data Structures and Algorithms</h1>
-        <p>Welcome to the Data Structures and Algorithms documentation.</p>
-        <nav>
-            <ul>
-                <li><a href="algorithms/sorting.html">Sorting Algorithms</a></li>
-                <li><a href="algorithms/searching.html">Searching Algorithms</a></li>
-                <li><a href="data-structures/arrays.html">Arrays</a></li>
-                <li><a href="data-structures/linked-lists.html">Linked Lists</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="#">DSA Docs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="algorithms/sorting.html">Sorting</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Searching
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="algorithms/searching.html">Searching Overview</a></li>
+              <li><a class="dropdown-item" href="algorithms/search/linear_search.html">Linear Search Demo</a></li>
             </ul>
-        </nav>
-        <section>
-            <h2>Introduction</h2>
-            <p>This documentation provides an overview of various data structures and algorithms.</p>
-            <p>Data structures are ways to organize and store data in a computer so that it can be accessed and modified efficiently.</p>
-            <p>Algorithms are step-by-step procedures or formulas for solving problems.</p>
-        </section>
-        <section>
-            <h2>Getting Started</h2>
-            <p>To get started, choose a topic from the navigation menu.</p>
-            <p>You can also check out the <a href="examples.html">examples</a> section for practical implementations.</p>
-        </section>
-        <section>
-            <h2>Contributing</h2>
-            <p>If you would like to contribute to this documentation, please check out the <a href="contributing.html">contributing guidelines</a>.</p>
-            <p>We welcome contributions from everyone!</p>
-        </section>
-        <section>
-            <h2>License</h2>
-            <p>This documentation is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for more details.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Data Structures and Algorithms Documentation</p>
-        <p>Contact: <a href="mailto:"></a></p>
-        <p>GitHub: <a href="">  </a></p>
-    </footer>
-    <script src="js/app.js"></script>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="data-structures/arrays.html">Arrays</a></li>
+          <li class="nav-item"><a class="nav-link" href="data-structures/linked-lists.html">Linked Lists</a></li>
+          <li class="nav-item"><a class="nav-link" href="examples.html">Examples</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="mb-5 text-center">
+      <h1 class="display-5 fw-bold">Data Structures and Algorithms</h1>
+      <p class="lead">Welcome to the DSA documentation site. Learn the fundamentals with hands-on demos.</p>
+    </header>
+
+    <section class="mb-5">
+      <h2>Introduction</h2>
+      <p>This documentation provides an overview of various data structures and algorithms.</p>
+      <p>Data structures organize and store data efficiently, while algorithms solve computational problems step by step.</p>
+    </section>
+
+    <section class="mb-5">
+      <h2>Getting Started</h2>
+      <p>Use the navigation above to explore sorting, searching, and fundamental data structures.</p>
+      <p>See the <a href="examples.html">examples section</a> for working implementations.</p>
+    </section>
+
+    <section class="mb-5">
+      <h2>Contributing</h2>
+      <p>Want to contribute? View our <a href="contributing.html">contributing guidelines</a>.</p>
+      <p>We welcome pull requests and improvements from developers of all experience levels.</p>
+    </section>
+
+    <section>
+      <h2>License</h2>
+      <p>This documentation is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+    </section>
+  </main>
+
+  <footer class="text-center text-muted py-4 mt-5 border-top">
+    <div class="container">
+      <p>&copy; 2025 Data Structures and Algorithms Documentation</p>
+      <p>
+        Contact: <a href="mailto:" class="text-decoration-none">Email</a> |
+        GitHub: <a href="" class="text-decoration-none">Repository</a>
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>

@@ -5,7 +5,7 @@
  * @returns {number} - Index of the target, or -1 if not found.
  */
 
-export default function linearSearch(arr, val) {
+function linearSearch(arr, val) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === val) return i;
   }
