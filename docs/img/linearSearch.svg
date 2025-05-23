@@ -1,0 +1,25 @@
+<svg width="500" height="100" viewBox="0 0 500 100">
+    <rect x="20" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <rect x="80" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <rect x="140" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <rect x="200" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <rect x="260" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <rect x="320" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <rect x="380" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
+    <text x="45" y="55" font-size="20" text-anchor="middle" fill="#333">3</text>
+    <text x="105" y="55" font-size="20" text-anchor="middle" fill="#333">1</text>
+    <text x="165" y="55" font-size="20" text-anchor="middle" fill="#333">4</text>
+    <text x="225" y="55" font-size="20" text-anchor="middle" fill="#333">1</text>
+    <text x="285" y="55" font-size="20" text-anchor="middle" fill="#333">5</text>
+    <text x="345" y="55" font-size="20" text-anchor="middle" fill="#333">9</text>
+    <text x="405" y="55" font-size="20" text-anchor="middle" fill="#333">2</text>
+    <rect x="260" y="30" width="50" height="40" fill="yellow" fill-opacity="0.5" stroke="orange" stroke-width="3"/>
+    <polygon points="285,80 275,95 295,95" fill="#007bff"/>
+    <rect x="275" y="95" width="20" height="5" fill="#007bff"/>
+    <text x="285" y="115" font-size="16" text-anchor="middle" fill="#007bff">Target</text>
+    <circle cx="45" cy="80" r="3" fill="#007bff"/>
+    <circle cx="105" cy="80" r="3" fill="#007bff"/>
+    <circle cx="165" cy="80" r="3" fill="#007bff"/>
+    <circle cx="225" cy="80" r="3" fill="#007bff"/>
+    <circle cx="285" cy="80" r="5" fill="orange" stroke="#333" stroke-width="1"/>
+</svg>

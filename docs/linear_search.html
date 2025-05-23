@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Linear Search | DSA Visualized</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -19,132 +20,167 @@
     .match {
       background-color: lightgreen;
     }
+    .algo-section {
+      margin-bottom: 2rem;
+    }
+    .algo-svg {
+      min-width: 100%;
+      overflow-x: auto;
+    }
+    @media (max-width: 767px) {
+      .algo-svg svg {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
   </style>
 </head>
-<body class="container py-4">
+<body class="container py-3">
   <nav class="mb-4">
     <a href="index.html" class="btn btn-outline-secondary">&larr; Back to Index</a>
   </nav>
 
   <main>
-    <h1 class="mb-4">Linear Search</h1>
+    <header class="mb-4">
+      <h1 class="mb-2">Linear Search</h1>
+      <p class="lead">
+        Linear search is a simple algorithm that checks each element in a list sequentially until it finds the target value or reaches the end of the list. It works on <em>unsorted arrays</em> and is easy to implement.
+      </p>
+    </header>
 
-    <div class="row align-items-center mb-5">
-      <!-- SVG Visual -->
-  
-      <div class="col-md-6 text-center">
-  
-        <h3 class="mt-5">How Linear Search Works</h3>
-  
-      <div class="my-4 text-center">
-  
-        <svg width="500" height="100" viewBox="0 0 500 100">
-  
-          <rect x="20" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <rect x="80" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <rect x="140" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <rect x="200" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <rect x="260" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <rect x="320" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <rect x="380" y="30" width="50" height="40" fill="#f8f9fa" stroke="#333"/>
-          <text x="45" y="55" font-size="20" text-anchor="middle" fill="#333">3</text>
-          <text x="105" y="55" font-size="20" text-anchor="middle" fill="#333">1</text>
-          <text x="165" y="55" font-size="20" text-anchor="middle" fill="#333">4</text>
-          <text x="225" y="55" font-size="20" text-anchor="middle" fill="#333">1</text>
-          <text x="285" y="55" font-size="20" text-anchor="middle" fill="#333">5</text>
-          <text x="345" y="55" font-size="20" text-anchor="middle" fill="#333">9</text>
-          <text x="405" y="55" font-size="20" text-anchor="middle" fill="#333">2</text>
-          <rect x="260" y="30" width="50" height="40" fill="yellow" fill-opacity="0.5" stroke="orange" stroke-width="3"/>
-          <polygon points="285,80 275,95 295,95" fill="#007bff"/>
-          <rect x="275" y="95" width="20" height="5" fill="#007bff"/>
-          <text x="285" y="115" font-size="16" text-anchor="middle" fill="#007bff">Target</text>
-          <circle cx="45" cy="80" r="3" fill="#007bff"/>
-          <circle cx="105" cy="80" r="3" fill="#007bff"/>
-          <circle cx="165" cy="80" r="3" fill="#007bff"/>
-          <circle cx="225" cy="80" r="3" fill="#007bff"/>
-          <circle cx="285" cy="80" r="5" fill="orange" stroke="#333" stroke-width="1"/>
-  
-        </svg>
-  
-        <div class="text-muted mt-2">Linear search checks each element until it finds the target.</div>
-  
-    </div>
-        
-    <div class="text-muted mt-2">Linear search checks each element until it finds the target.</div>
-    
-  </div>
-    
-      <!-- Description Text -->
-      <div class="col-md-6">
-        <p>
-          <strong>Linear search</strong> is a simple search algorithm that checks every element in a list sequentially until it finds the target value or reaches the end of the list. It works on <em>unsorted arrays</em> and is easy to implement.
-        </p>
-        <ul>
-          <li><strong>Best Case:</strong> O(1) – target is the first element</li>
-          <li><strong>Average/Worst Case:</strong> O(n)</li>
-          <li><strong>Space Complexity:</strong> O(1)</li>
-          <li>Useful when the list is unsorted and small</li>
-        </ul>
+    <section class="algo-section">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="h4 mb-3">How Linear Search Works</h2>
+          <div id="svgContainer" class="algo-svg mb-2"></div>
+          <div class="text-muted small">Linear search checks each element until it finds the target.</div>
+        </div>
+        <div class="col-lg-6">
+          <h2 class="h4 mb-3">Algorithm Description</h2>
+          <ul>
+            <li>Start at the beginning of the array.</li>
+            <li>Compare each element to the target value.</li>
+            <li>If a match is found, return its index.</li>
+            <li>If the end is reached without a match, return -1.</li>
+          </ul>
+          <div class="alert alert-info mt-3 mb-0 p-2 small">
+            <strong>Use Cases:</strong> Best for small or unsorted lists where simplicity is preferred over speed.
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <section class="algo-section">
+      <h2 class="h4 mb-3">Try It Yourself</h2>
+      <form class="row g-3 mb-3" onsubmit="event.preventDefault(); runLinearSearch();">
+        <div class="col-12 col-md-6">
+          <label for="arrayInput" class="form-label">Array (comma-separated):</label>
+          <input type="text" id="arrayInput" class="form-control" value="3,1,4,1,5,9,2" autocomplete="off" />
+        </div>
+        <div class="col-12 col-md-6">
+          <label for="targetInput" class="form-label">Target:</label>
+          <input type="text" id="targetInput" class="form-control" value="5" autocomplete="off" />
+        </div>
+        <div class="col-12">
+          <button id="searchBtn" class="btn btn-primary" type="submit">Run Linear Search</button>
+        </div>
+      </form>
+      <h3 class="h5">Results</h3>
+      <div id="results" class="mb-4"></div>
+    </section>
 
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="arrayInput" class="form-label">Array (comma-separated):</label>
-        <input type="text" id="arrayInput" class="form-control" value="3,1,4,1,5,9,2" />
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="targetInput" class="form-label">Target:</label>
-        <input type="text" id="targetInput" class="form-control" value="5" />
-      </div>
-    </div>
+    <section class="algo-section">
+      <h2 class="h4 mb-3">Pseudocode</h2>
+      <pre class="bg-light p-3 rounded"><code>
+function linearSearch(arr, target):
+    for i from 0 to arr.length - 1:
+        if arr[i] == target:
+            return i
+    return -1
+      </code></pre>
+    </section>
 
-    <button id="searchBtn" class="btn btn-primary mb-4">Run Linear Search</button>
+    <section class="algo-section">
+      <h2 class="h4 mb-3">Time and Space Complexity</h2>
+      <table class="table table-bordered w-auto">
+        <thead class="table-light">
+          <tr>
+            <th>Case</th>
+            <th>Time Complexity</th>
+            <th>Space Complexity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Best</td>
+            <td>O(1)</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>Average</td>
+            <td>O(n)</td>
+            <td>O(1)</td>
+          </tr>
+          <tr>
+            <td>Worst</td>
+            <td>O(n)</td>
+            <td>O(1)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    <h2>Results</h2>
-    <div id="results" class="mb-4"></div>
+    <section class="algo-section">
+      <h2 class="h4 mb-3">Time Complexity Visualization</h2>
+      <canvas id="complexityChart" height="200"></canvas>
+    </section>
 
-    <!-- Complexity Table -->
-    <h3>Time and Space Complexity</h3>
-    <table class="table table-bordered w-auto">
-      <thead class="table-light">
-        <tr>
-          <th>Case</th>
-          <th>Time Complexity</th>
-          <th>Space Complexity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Best</td>
-          <td>O(1)</td>
-          <td>O(1)</td>
-        </tr>
-        <tr>
-          <td>Average</td>
-          <td>O(n)</td>
-          <td>O(1)</td>
-        </tr>
-        <tr>
-          <td>Worst</td>
-          <td>O(n)</td>
-          <td>O(1)</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Chart.js Line Graph -->
-    <h3 class="mt-5">Time Complexity Visualization</h3>
-    <canvas id="complexityChart" height="200"></canvas>
-
+    <section class="algo-section">
+      <h2 class="h4 mb-3">When to Use Linear Search</h2>
+      <ul>
+        <li>When the list is unsorted or very small.</li>
+        <li>When simplicity is more important than performance.</li>
+        <li>When you expect the target to be near the start of the list.</li>
+      </ul>
+      <p class="text-muted small">
+        For large or sorted lists, consider more efficient algorithms like <a href="binary_search.html">binary search</a>.
+      </p>
+    </section>
   </main>
 
   <script src="js/algorithms/search/linearSearch.js"></script>
   <script>
     const $ = (id) => document.getElementById(id);
 
-    $("searchBtn").addEventListener("click", () => {
+    function renderLinearSearchSVG(arr, target) {
+      const boxWidth = 50, boxHeight = 40, spacing = 10, startX = 20, y = 30;
+      let svgWidth = arr.length * (boxWidth + spacing) + startX;
+      let svg = `<svg width="${svgWidth}" height="120" viewBox="0 0 ${svgWidth} 120">`;
+
+      arr.forEach((val, i) => {
+        const x = startX + i * (boxWidth + spacing);
+        let highlight = val === target ? 'fill="yellow" fill-opacity="0.5" stroke="orange" stroke-width="3"' : 'fill="#f8f9fa" stroke="#333"';
+        svg += `<rect x="${x}" y="${y}" width="${boxWidth}" height="${boxHeight}" ${highlight}/>`;
+        svg += `<text x="${x + boxWidth/2}" y="${y + 25}" font-size="20" text-anchor="middle" fill="#333">${val}</text>`;
+      });
+
+      let foundIdx = arr.findIndex(v => v === target);
+      for (let i = 0; i < arr.length; i++) {
+        const x = startX + i * (boxWidth + spacing) + boxWidth/2;
+        if (i < foundIdx) {
+          svg += `<circle cx="${x}" cy="90" r="3" fill="#007bff"/>`;
+        } else if (i === foundIdx) {
+          svg += `<circle cx="${x}" cy="90" r="5" fill="orange" stroke="#333" stroke-width="1"/>`;
+          svg += `<polygon points="${x},80 ${x-10},95 ${x+10},95" fill="#007bff"/>`;
+          svg += `<rect x="${x-10}" y="95" width="20" height="5" fill="#007bff"/>`;
+          svg += `<text x="${x}" y="115" font-size="16" text-anchor="middle" fill="#007bff">Target</text>`;
+        }
+      }
+      svg += `</svg>`;
+      return svg;
+    }
+
+    function runLinearSearch() {
       const arr = $("arrayInput").value.split(",").map(Number);
       const target = parseFloat($("targetInput").value);
       const resultContainer = $("results");
@@ -157,15 +193,16 @@
         resultContainer.appendChild(span);
       });
 
-      const index = linearSearch(arr, target);
+      const index = typeof linearSearch === "function" ? linearSearch(arr, target) : arr.findIndex(v => v === target);
       if (index !== -1) {
         resultContainer.children[index].classList.add("highlight");
       } else {
-        alert(`Target ${target} not found`);
+        resultContainer.innerHTML += `<span class="text-danger ms-2">Target ${target} not found</span>`;
       }
 
+      $("svgContainer").innerHTML = renderLinearSearchSVG(arr, target);
       drawComplexityChart(arr.length);
-    });
+    }
 
     function drawComplexityChart(n) {
       const ctx = document.getElementById("complexityChart").getContext("2d");
@@ -202,6 +239,9 @@
         }
       });
     }
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", runLinearSearch);
   </script>
 </body>
 </html>
